@@ -1,0 +1,7 @@
+.organization {
+  cursor: pointer;
+}
+
+.organization.starred {
+  color: red;
+}
