@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+.organization img {
+  max-width: 150px;
+}
+
 .organization.starred {
   color: red;
 }
