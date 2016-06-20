@@ -1,3 +1,7 @@
+{{#if hasStars}}
+  <li>{{starredOrganizations.length}} Stars</li>
+{{/if}}
+
 {{#each organizations as |organization|}}
   <li class="organization {{if organization.isStarred 'starred'}}" {{action on-star organization}}>
     {{organization.name}}
