@@ -1,1 +1,6 @@
-{{organization-list organizations=model on-star=(route-action 'star')}}
+{{#organization-list
+  organizations=model
+  on-star=(route-action 'star') as |organization|}}
+
+  {{organization.name}}
+{{/organization-list}}
