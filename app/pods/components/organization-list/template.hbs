@@ -4,6 +4,12 @@
 
 {{#each organizations as |organization|}}
   <li class="organization {{if organization.isStarred 'starred'}}" {{action on-star organization}}>
-    {{yield organization}}
+    {{#if hasBlock}}
+      {{yield organization 'foo'}}
+    {{else}}
+      {{organization.name}}
+    {{/if}}
   </li>
+{{else}}
+  <li>No items.</li>
 {{/each}}
