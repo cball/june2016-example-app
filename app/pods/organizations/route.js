@@ -6,5 +6,11 @@ export default Ember.Route.extend({
       { id: 1, name: 'Org 1' },
       { id: 2, name: 'Org 2' }
     ];
+  },
+
+  actions: {
+    star(organization) {
+      console.log(organization);
+    }
   }
 });

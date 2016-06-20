@@ -1,5 +1,7 @@
 <ul>
   {{#each model as |organization|}}
-    <li>{{organization.name}}</li>
+    <li {{action 'star' organization}}>
+      {{organization.name}}
+    </li>
   {{/each}}
 </ul>
