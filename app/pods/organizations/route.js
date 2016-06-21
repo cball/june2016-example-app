@@ -9,6 +9,10 @@ export default Ember.Route.extend({
       this.get('github').request('orgs/emberjs'),
       this.get('github').request('orgs/ciena-blueplanet')
     ];
+    // const requests = [
+    //   this.store.findRecord('organization', 'emberjs'),
+    //   this.store.findRecord('organization', 'ciena-blueplanet'),
+    // ];
 
     return RSVP.all(requests)
       .catch((e) => {
