@@ -3,12 +3,15 @@
 {{/if}}
 
 {{#each organizations as |organization|}}
-  <li class="organization {{if organization.isStarred 'starred'}}" {{action on-star organization}}>
-    {{#if hasBlock}}
-      {{yield organization 'foo'}}
-    {{else}}
-      {{organization.name}}
-    {{/if}}
+  {{!-- {{action on-star organization}} --}}
+  <li class="organization {{if organization.isStarred 'starred'}}">
+    {{#link-to 'organizations.organization' organization.login}}
+      {{#if hasBlock}}
+        {{yield organization 'foo'}}
+      {{else}}
+        {{organization.name}}
+      {{/if}}
+    {{/link-to}}
   </li>
 {{else}}
   <li>No items.</li>
