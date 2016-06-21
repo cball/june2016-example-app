@@ -9,6 +9,8 @@ export function decorateNumber([number]/*, hash*/) {
   if(number === 2) {
     return `${number}!!`;
   }
+
+  return '';
 }
 
 export default Ember.Helper.helper(decorateNumber);

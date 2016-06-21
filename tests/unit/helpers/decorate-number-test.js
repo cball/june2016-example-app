@@ -9,9 +9,18 @@ import {
 } from 'repo-browser/helpers/decorate-number';
 
 describe('DecorateNumberHelper', function() {
-  // Replace this with your real tests.
-  it('works', function() {
-    let result = decorateNumber(42);
-    expect(result).to.be.ok;
+  it('adds a single ! if number is 1', function() {
+    let result = decorateNumber([1]);
+    expect(result).to.equal('1!');
+  });
+
+  it('adds !! if number is 2', function() {
+    let result = decorateNumber([2]);
+    expect(result).to.equal('2!!');
+  });
+
+  it('returns empty string otherwise', function() {
+    let result = decorateNumber(['asdf']);
+    expect(result).to.be.empty;
   });
 });

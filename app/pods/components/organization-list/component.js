@@ -7,6 +7,21 @@ export default Ember.Component.extend({
   starredOrganizations: Ember.computed.filterBy('organizations', 'isStarred', true),
   hasStars: Ember.computed.gt('starredOrganizations.length', 0),
 
+  // example dependent key CPs
+  myProp: Ember.computed('prop1', 'prop2.length', function() {
+    const valueOfMyProperty = 'hi';
+
+    return valueOfMyProperty;
+  }),
+
+  starred: Ember.computed('organizations.@each.isStarred', function() {
+
+  }),
+
+  starred2: Ember.computed('organizations.[]', function() {
+
+  }),
+
   init() {
     this._super(...arguments);
 
