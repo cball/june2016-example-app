@@ -1,13 +1,15 @@
 import Ember from 'ember';
 import RSVP from 'rsvp';
+import ENV from 'repo-browser/config/environment';
 
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
 
   model() {
+    const githubToken = ENV.GITHUB_TOKEN;
     const requests = [
-      this.get('ajax').request('https://api.github.com/orgs/emberjs?access_token=9a9cee03c07a59b1387b5480b3b8c946a47d1eec'),
-      this.get('ajax').request('https://api.github.com/orgs/ciena-blueplanet?access_token=9a9cee03c07a59b1387b5480b3b8c946a47d1eec')
+      this.get('ajax').request(`https://api.github.com/orgs/emberjs?access_token=${githubToken}`),
+      this.get('ajax').request(`https://api.github.com/orgs/ciena-blueplanet?access_token=${githubToken}`)
     ];
 
     return RSVP.all(requests)
