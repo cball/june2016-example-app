@@ -1,8 +1,16 @@
-{{#organization-list
-  organizations=model
-  on-star=(route-action 'star') as |org myString|}}
+<div class="organizations">
+  <div class="sidebar">
+    {{#organization-list
+      organizations=model
+      on-star=(route-action 'star') as |org myString|}}
 
-  <img src={{org.avatar_url}}> {{org.name}} {{myString}}
-{{/organization-list}}
+      <img src={{org.avatar_url}}> {{org.name}} {{myString}}
+    {{/organization-list}}
 
-{{organization-list organizations=model on-star=(route-action 'star')}}
+    {{organization-list organizations=model on-star=(route-action 'star')}}
+  </div>
+
+  <div class="main">
+    {{outlet}}
+  </div>
+</div>

@@ -3,9 +3,21 @@
 }
 
 .organization img {
-  max-width: 150px;
+  max-width: 80px;
 }
 
 .organization.starred {
   color: red;
+}
+
+.organizations {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+}
+
+.main {
+  flex: 1;
 }
