@@ -9,7 +9,7 @@ import { expect } from 'chai';
 import startApp from '../helpers/start-app';
 import destroyApp from '../helpers/destroy-app';
 
-describe('Acceptance: UserViewsOrganizations', function() {
+describe('Acceptance: User views organizations', function() {
   let application;
 
   beforeEach(function() {
@@ -20,11 +20,37 @@ describe('Acceptance: UserViewsOrganizations', function() {
     destroyApp(application);
   });
 
-  it('can visit /user-views-organizations', function() {
-    visit('/user-views-organizations');
+  describe('on initial load', function() {
+    beforeEach(function() {
+      visit('/organizations');
+    });
 
-    andThen(function() {
-      expect(currentPath()).to.equal('user-views-organizations');
+    it('shows each organization', function() {
+      const ember = find('.main-org-list li:contains(Ember)');
+      const ciena = find('.main-org-list li:contains(Blue Planet)');
+
+      expect(ember).to.have.length(1);
+      expect(ciena).to.have.length(1);
+    });
+
+    it('it shows "choose an organization"', function() {
+      const chooseTitle = find('h2:contains(Choose an organization)');
+      expect(chooseTitle).to.have.length(1);
+    });
+
+    it('renders the index route', function() {
+      expect(currentPath()).to.equal('organizations.index');
+    });
+  });
+
+  describe('clicking an organization', function() {
+    beforeEach(function() {
+      visit('/organizations');
+      click('.main-org-list .organization:contains(Blue Planet) a');
+    });
+
+    it('transitions to the organization route', function() {
+      expect(currentURL()).to.equal('/organizations/ciena-blueplanet')
     });
   });
 });

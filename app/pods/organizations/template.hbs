@@ -1,6 +1,7 @@
 <div class="organizations">
   <div class="sidebar">
     {{#organization-list
+      class='main-org-list'
       organizations=model
       on-star=(route-action 'star') as |org myString|}}
 
