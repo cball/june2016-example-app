@@ -7,13 +7,10 @@ import Ember from 'ember';
 // } = Ember;
 
 // shortening chaning via ember-cli-shims
-import service from 'ember-service/inject';
 import Route from 'ember-route';
 import RSVP from 'rsvp';
 
 export default Route.extend({
-  github: service(),
-
   // use this.modelFor
   // if need current: this.modelFor(this.routeName);
   model({ login }) {

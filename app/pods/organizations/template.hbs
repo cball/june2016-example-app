@@ -6,6 +6,8 @@
       on-star=(route-action 'star') as |org myString|}}
 
       <img src={{org.avatar_url}}> {{org.name}} {{myString}}
+    {{else}}
+      NOOO!
     {{/organization-list}}
 
     {{organization-list organizations=model on-star=(route-action 'star')}}

@@ -16,5 +16,15 @@ export default Ember.Component.extend({
     const notFound = itemIndex === -1;
 
     return notFound ? 'Unknown' : itemIndex + 1;
-  })
+  }),
+
+  // item: computed({
+  //   get() {
+  //     return this.get('_items');
+  //   },
+  //
+  //   set(key, value) {
+  //     return this.set('_items', value);
+  //   }
+  // });
 });

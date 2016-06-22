@@ -14,5 +14,7 @@
     {{/link-to}}
   </li>
 {{else}}
-  <li>No items.</li>
+  {{!-- give consuming template control over how to render this  --}}
+  {{yield to='inverse'}}
+  {{!-- <li>No items.</li> --}}
 {{/each}}

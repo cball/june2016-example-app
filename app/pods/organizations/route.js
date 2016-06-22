@@ -2,8 +2,6 @@ import Ember from 'ember';
 import RSVP from 'rsvp';
 
 export default Ember.Route.extend({
-  github: Ember.inject.service(),
-
   model() {
     const requests = [
       this.get('github').request('orgs/emberjs'),
