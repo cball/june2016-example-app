@@ -1,4 +1,10 @@
-import JSONAPIAdapter from 'ember-data/adapters/json-api';
+import ActiveModelAdapter from 'active-model-adapter';
+import ENV from 'repo-browser/config/environment';
 
-export default JSONAPIAdapter.extend({
+export default ActiveModelAdapter.extend({
+  host: 'https://api.github.com',
+  pathForType: () => 'orgs',
+  headers: {
+   'Authorization': `token ${ENV.GITHUB_TOKEN}`
+  }
 });

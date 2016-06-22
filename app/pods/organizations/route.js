@@ -3,14 +3,17 @@ import RSVP from 'rsvp';
 
 export default Ember.Route.extend({
   model() {
-    const requests = [
-      this.get('github').request('orgs/emberjs'),
-      this.get('github').request('orgs/ciena-blueplanet')
-    ];
+    // ajax version
     // const requests = [
-    //   this.store.findRecord('organization', 'emberjs'),
-    //   this.store.findRecord('organization', 'ciena-blueplanet'),
+    //   this.get('github').request('orgs/emberjs'),
+    //   this.get('github').request('orgs/ciena-blueplanet')
     // ];
+
+    // ember data version
+    const requests = [
+      this.store.findRecord('organization', 'emberjs'),
+      this.store.findRecord('organization', 'ciena-blueplanet'),
+    ];
 
     return RSVP.all(requests)
       .catch((e) => {

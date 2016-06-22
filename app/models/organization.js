@@ -5,8 +5,9 @@ import attr from 'ember-data/attr';
 export default Model.extend({
   avatarUrl: attr('string'),
   login: attr('string'),
+  name: attr('string'),
   updatedAt: attr('date'),
 
-  // if we wanted an array
+  // if we wanted an array or object
   colors: attr()
 });
