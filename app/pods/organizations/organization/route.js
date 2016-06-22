@@ -9,11 +9,20 @@ import Ember from 'ember';
 // shortening chaning via ember-cli-shims
 import service from 'ember-service/inject';
 import Route from 'ember-route';
+import RSVP from 'rsvp';
 
 export default Route.extend({
   github: service(),
 
+  // use this.modelFor
+  // if need current: this.modelFor(this.routeName);
   model({ login }) {
-    return this.get('github').request(`org s/${login}`);
+    const organizations = this.modelFor('organizations');
+    const organization = this.get('github').request(`orgs/${login}`);
+
+    return RSVP.hash({
+      organizations,
+      organization
+    });
   }
 });

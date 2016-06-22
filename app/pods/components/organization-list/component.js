@@ -8,19 +8,19 @@ export default Ember.Component.extend({
   hasStars: Ember.computed.gt('starredOrganizations.length', 0),
 
   // example dependent key CPs
-  myProp: Ember.computed('prop1', 'prop2.length', function() {
+  myProp: Ember.computed('prop1', 'prop2', function() {
     const valueOfMyProperty = 'hi';
 
     return valueOfMyProperty;
-  }),
-
-  starred: Ember.computed('organizations.@each.isStarred', function() {
-
-  }),
-
-  starred2: Ember.computed('organizations.[]', function() {
-
-  }),
+  }).readOnly(),
+  //
+  // starred: Ember.computed('organizations.@each.isStarred', function() {
+  //
+  // }),
+  //
+  // starred2: Ember.computed('organizations.[]', function() {
+  //
+  // }),
 
   init() {
     this._super(...arguments);

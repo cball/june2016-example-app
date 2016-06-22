@@ -2,6 +2,10 @@
   Back to index
 {{/link-to}}
 
+{{collection-index-info
+  collection=model.organizations
+  item=model.organization}}
+
 <p>Organization details:</p>
 
-<img src={{model.avatar_url}}>
+<img src={{model.organization.avatar_url}}>
