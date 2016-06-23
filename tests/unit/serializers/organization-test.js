@@ -4,10 +4,10 @@ import { describeModel, it } from 'ember-mocha';
 
 describeModel(
   'organization',
-  'Unit | Serializer | application',
+  'Unit | Serializer | organization',
   {
     // Specify the other units that are required for this test.
-    needs: ['serializer:application', 'model:repository']
+    needs: ['serializer:organization']
   },
   function() {
     // Replace this with your real tests.
