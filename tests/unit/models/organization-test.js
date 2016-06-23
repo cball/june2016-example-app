@@ -7,7 +7,7 @@ describeModel(
   'Unit | Model | organization',
   {
     // Specify the other units that are required for this test.
-      needs: []
+      needs: ['model:repository']
   },
   function() {
     // Replace this with your real tests.
