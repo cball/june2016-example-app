@@ -40,8 +40,48 @@ describeComponent(
       });
     });
 
-    describe('with an item not in the collection', function() {
+    describe('passing a block', function() {
+      beforeEach(function() {
+        const item = { id: 1 };
+        const item2 = { id: 2 };
+        const collection = [item, item2];
 
+        this.setProperties({
+          collection,
+          item
+        });
+
+        // yield with arguments
+        // this.render(hbs`
+        //   {{#collection-index-info
+        //     collection=collection
+        //     item=item as |itemIndex length|}}
+        //
+        //     position {{itemIndex}} of {{length}}
+        //
+        //   {{/collection-index-info}}
+        // `);
+
+        // yield with hash helper
+        this.render(hbs`
+          {{#collection-index-info
+            collection=collection
+            item=item as |info|}}
+
+            position {{info.index}} of {{info.length}}
+
+          {{/collection-index-info}}
+        `);
+      });
+
+      it('renders the text', function() {
+        const text = this.$().text().trim();
+        expect(text).to.equal('position 1 of 2');
+      });
+    });
+
+    describe('with an item not in the collection', function() {
+      it.skip('shows unknown');
     });
 
     it('renders', function() {

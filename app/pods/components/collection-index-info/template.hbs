@@ -1,1 +1,12 @@
-Viewing {{itemIndex}} of {{collection.length}}
+{{#if hasBlock}}
+  {{!--
+    using the hash helper with yield.
+    recommended when you're yielding many arguments
+  --}}
+  {{yield (hash index=itemIndex length=collection.length)}}
+
+  {{!-- using standard yield with arguments  --}}
+  {{!-- {{yield itemIndex collection.length}} --}}
+{{else}}
+  Viewing {{itemIndex}} of {{collection.length}}
+{{/if}}
