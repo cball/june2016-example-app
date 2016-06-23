@@ -50,7 +50,7 @@ describe('Acceptance: User views organizations', function() {
     });
 
     it('transitions to the organization route', function() {
-      expect(currentURL()).to.equal('/organizations/ciena-blueplanet')
+      expect(currentURL()).to.equal('/organizations/ciena-blueplanet');
     });
 
     it('shows "Viewing 2 of 2"', function() {

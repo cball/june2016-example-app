@@ -1,5 +1,4 @@
-import Ember from 'ember';
-
+// import Ember from 'ember';
 // shortening chaining via destructuring
 // const { Route } = Ember;
 // const {

@@ -18,13 +18,22 @@ describeComponent(
   },
   function() {
     describe('no organizations', function() {
+      const noOrgsText = 'I have nothing';
+
       beforeEach(function() {
-        this.render(hbs`{{organization-list}}`);
+        this.set('noOrgsText', noOrgsText);
+
+        this.render(hbs`
+          {{#organization-list}}
+          {{else}}
+            {{noOrgsText}}
+          {{/organization-list}}
+        `);
       });
 
-      it('shows "No items."', function() {
+      it(`shows "${noOrgsText}"`, function() {
         const listText = this.$('li').text().trim();
-        expect(listText).to.equal('No items.');
+        expect(listText).to.equal(noOrgsText);
       });
     });
 

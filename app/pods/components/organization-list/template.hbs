@@ -15,6 +15,6 @@
   </li>
 {{else}}
   {{!-- give consuming template control over how to render this  --}}
-  {{yield to='inverse'}}
+  <li>{{yield to='inverse'}}</li>
   {{!-- <li>No items.</li> --}}
 {{/each}}
