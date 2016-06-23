@@ -22,5 +22,11 @@ export default Route.extend({
       organizations,
       organization
     });
+  },
+
+  afterModel(model) {
+    model.repos = model.organization.get('repositories');
+
+    return model.repos;
   }
 });

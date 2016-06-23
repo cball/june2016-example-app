@@ -9,3 +9,7 @@
 <p>Organization details:</p>
 
 <img src={{model.organization.avatarUrl}}>
+
+{{#each model.organization.repositories as |repo|}}
+  {{repo.name}}
+{{/each}}
