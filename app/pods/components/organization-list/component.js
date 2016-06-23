@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { assert } from 'ember-metal/utils';
 
 export default Ember.Component.extend({
   tagName: 'ul',
@@ -25,6 +26,7 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
 
+    assert('Must pass organization', this.organizations);
     // Dont need this part if using ember-prop-types
     // this.organizations = this.organizations || [];
     // this.set('organizations', this.get('organizations') || []);

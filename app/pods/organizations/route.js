@@ -15,6 +15,10 @@ export default Ember.Route.extend({
       this.store.findRecord('organization', 'ciena-blueplanet'),
     ];
 
+    // if we were using findAll and metadata:
+    // const request = this.store.query('organization', pageParams);
+    // request.meta.total_pages
+
     return RSVP.all(requests)
       .catch((e) => {
         console.log(e);
