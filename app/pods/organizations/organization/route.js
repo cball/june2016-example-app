@@ -24,6 +24,9 @@ export default Route.extend({
     });
   },
 
+  // if we want to preload data for the page and not
+  // see a blank area before the repo list loads:
+
   afterModel(model) {
     model.repos = model.organization.get('repositories');
 

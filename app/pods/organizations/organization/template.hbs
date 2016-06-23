@@ -10,6 +10,8 @@
 
 <img src={{model.organization.avatarUrl}}>
 
-{{#each model.organization.repositories as |repo|}}
-  {{repo.name}}
-{{/each}}
+<ul>
+  {{#each model.organization.repositories as |repo|}}
+    <li>{{repo.name}}</li>
+  {{/each}}
+</ul>
