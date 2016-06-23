@@ -3,6 +3,8 @@ import computed from 'ember-computed';
 import get from 'ember-metal/get';
 
 export default Ember.Component.extend({
+  classNames: ['collection-index-info'],
+
   itemIndex: computed('item', 'collection.[]', function() {
     const item = this.get('item');
     // why id?

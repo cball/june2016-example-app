@@ -15,7 +15,9 @@ export default Route.extend({
   // if need current: this.modelFor(this.routeName);
   model({ login }) {
     const organizations = this.modelFor('organizations');
-    const organization = this.get('github').request(`orgs/${login}`);
+    // const organization = this.get('github').request(`orgs/${login}`);
+    const organization = this.store.findRecord('organization', login);
+
 
     return RSVP.hash({
       organizations,
