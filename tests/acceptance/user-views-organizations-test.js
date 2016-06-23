@@ -22,10 +22,18 @@ describe('Acceptance: User views organizations', function() {
 
   describe('on initial load', function() {
     beforeEach(function() {
+      const ember = server.create('organization', {
+        login: 'emberjs'
+      });
+      const ciena = server.create('organization', {
+        login: 'ciena-blueplanet'
+      });
+
       visit('/organizations');
     });
 
     it('shows each organization', function() {
+      // return pauseTest()
       const ember = find('.main-org-list li:contains(Ember)');
       const ciena = find('.main-org-list li:contains(Blue Planet)');
 

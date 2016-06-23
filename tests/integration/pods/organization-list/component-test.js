@@ -18,13 +18,26 @@ describeComponent(
   },
   function() {
     describe('no organizations', function() {
+      it('throws an error if no organizations', function() {
+        expect(() => {
+          this.render(hbs`{{organization-list}}`);
+        }).to.throw(/Must pass organization/);
+      });
+    });
+
+    describe('empty organizations', function() {
       const noOrgsText = 'I have nothing';
 
       beforeEach(function() {
-        this.set('noOrgsText', noOrgsText);
+        const organizations = [];
+
+        this.setProperties({
+          organizations,
+          noOrgsText
+        });
 
         this.render(hbs`
-          {{#organization-list}}
+          {{#organization-list organizations=organizations}}
           {{else}}
             {{noOrgsText}}
           {{/organization-list}}
@@ -64,20 +77,6 @@ describeComponent(
         const org2 = this.$('li:contains(Org 2)');
         expect(org2.hasClass('starred')).to.be.ok;
       });
-    });
-
-    it('renders', function() {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.on('myAction', function(val) { ... });
-      // Template block usage:
-      // this.render(hbs`
-      //   {{#organization-list}}
-      //     template content
-      //   {{/organization-list}}
-      // `);
-
-      this.render(hbs`{{organization-list}}`);
-      expect(this.$()).to.have.length(1);
     });
   }
 );
