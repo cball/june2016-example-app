@@ -5,11 +5,23 @@ export default ActiveModelSerializer.extend({
     const newRoot = primaryModelClass.modelName;
     let newPayload = {};
 
-    payload.links = {
-      repositories: payload.repos_url
-    };
+    payload.links = linksForPayload(payload);
     newPayload[newRoot] = payload;
 
     return this._super(store, primaryModelClass, newPayload, id, requestType);
   }
 });
+
+function linksForPayload(payload) {
+  const links = {};
+  const relationships = Object.keys(payload).filter((k) => {
+    return k.includes('_url');
+  });
+
+  relationships.forEach((r) => {
+    const name = r.replace(/_url/, '');
+    links[name] = payload[r];
+  });
+
+  return links;
+}
